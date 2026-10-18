@@ -1,127 +1,232 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site GitHub Pages</title>
+    <title>Editorial White & Blue - Architectural Layout</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Space Grotesk & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #0f172a;
-            --primary-blue: #2563eb;
-            --light-blue: #eff6ff;
-            --border-color: #cbd5e1;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
+            --royal-blue: #1d4ed8;
+            --pure-white: #ffffff;
+            --canvas-bg: #f8fafc;
+            --border-color: #0f172a;
         }
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--canvas-bg);
+            color: #0f172a;
         }
-        header {
-            border-bottom: 2px solid var(--text-color);
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--light-blue);
+        .display-font {
+            font-family: 'Space Grotesk', sans-serif;
         }
-        h1 {
-            font-size: 2rem;
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            color: var(--primary-blue);
+        /* Architectural neo-brutalist sharp borders & hard shadows */
+        .arch-box {
+            border: 2px solid #0f172a;
+            box-shadow: 4px 4px 0px #0f172a;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        main {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            flex: 1;
-            border-bottom: 2px solid var(--text-color);
+        .arch-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #1d4ed8;
         }
-        @media (max-width: 768px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
-        .sidebar {
-            border-right: 2px solid var(--text-color);
-            padding: 2rem;
-            background-color: #f8fafc;
-        }
-        .content-area {
-            display: flex;
-            flex-direction: column;
-        }
-        .part {
-            padding: 2rem;
-            border-bottom: 2px solid var(--text-color);
-            flex: 1;
-        }
-        .part:last-child {
-            border-bottom: none;
-        }
-        h2 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
-        }
-        p {
-            line-height: 1.6;
-            color: #334155;
-        }
-        footer {
-            padding: 1.5rem 2rem;
-            text-align: center;
-            font-weight: 600;
-            background-color: var(--light-blue);
+        .blue-accent-box {
+            background-color: var(--royal-blue);
+            color: var(--pure-white);
+            border: 2px solid #0f172a;
+            box-shadow: 4px 4px 0px #0f172a;
         }
     </style>
 </head>
-<body>
+<body class="min-h-full flex flex-col selection:bg-blue-600 selection:text-white">
 
-    <header>
-        <h1>Mon Espace Web</h1>
-        <p>Hébergé sur GitHub Pages</p>
+    <!-- Top Architectural Header -->
+    <header class="w-full border-b-2 border-slate-900 bg-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-4 h-4 bg-blue-600 border border-slate-900"></div>
+                <span class="display-font font-bold text-lg tracking-wider uppercase text-slate-900">ARCH / STRUCT</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-semibold tracking-tight text-slate-700">
+                <a href="#matrix" class="hover:text-blue-600 transition-colors">01. SPATIAL MATRIX</a>
+                <a href="#blueprint" class="hover:text-blue-600 transition-colors">02. BLUEPRINT</a>
+                <a href="#interactive" class="hover:text-blue-600 transition-colors">03. DYNAMICS</a>
+            </nav>
+            <div class="display-font text-xs font-bold px-4 py-2 bg-blue-600 text-white border-2 border-slate-900 shadow-[2px_2px_0px_#0f172a] uppercase tracking-wider">
+                Live on GitHub
+            </div>
+        </div>
     </header>
 
-    <main>
-        <!-- Colonne verticale 1 -->
-        <div class="sidebar">
-            <h2>Navigation</h2>
-            <p>Ceci est la première section verticale principale de votre page, idéale pour les menus ou résumés.</p>
+    <!-- Main Architectural Layout -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-6 py-12 lg:py-16">
+        
+        <!-- Hero Section: Architectural Asymmetry -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
+            <div class="lg:col-span-8 arch-box bg-white p-8 lg:p-14 flex flex-col justify-between">
+                <div>
+                    <div class="inline-block text-xs font-bold uppercase tracking-widest bg-blue-100 text-blue-700 px-3 py-1 border border-slate-900 mb-6">
+                        Architectural Grid System
+                    </div>
+                    <h1 class="display-font text-4xl sm:text-6xl font-bold tracking-tight text-slate-900 leading-none mb-6">
+                        PRÉCISION <br><span class="text-blue-600">GÉOMÉTRIQUE</span> & BLANC PUR.
+                    </h1>
+                </div>
+                <p class="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
+                    Une approche spatiale radicale qui élimine les grilles de cartes traditionnelles au profit de partitions architecturales nettes, en contraste royal blue et blanc absolu.
+                </p>
+            </div>
+
+            <!-- Right Vertical Monolith -->
+            <div class="lg:col-span-4 blue-accent-box p-8 lg:p-10 flex flex-col justify-between">
+                <div>
+                    <div class="text-xs font-mono uppercase tracking-widest text-blue-200 mb-2">// SPEC_01</div>
+                    <h2 class="display-font text-2xl font-bold mb-4">Monolithe Royal</h2>
+                    <p class="text-blue-100 text-sm leading-relaxed font-light">
+                        Structure épurée optimisée pour GitHub Pages. Aucun élément superflu, uniquement la puissance du design brut et fonctionnel.
+                    </p>
+                </div>
+                <div class="pt-8 border-t border-blue-500/45 flex items-center justify-between text-xs font-mono">
+                    <span>STATUT</span>
+                    <span class="bg-white text-blue-700 px-2.5 py-1 font-bold border border-slate-900">ACTIF</span>
+                </div>
+            </div>
         </div>
 
-        <!-- Colonne verticale 2 divisée en 4 parties horizontales -->
-        <div class="content-area">
-            <div class="part">
-                <h2>Partie 1 (Horizontale)</h2>
-                <p>Bienvenue sur votre site web personnalisé en blanc et bleu. Ce modèle unique évite les grilles standards et offre un style épuré.</p>
+        <!-- Interactive Spatial Matrix Section -->
+        <div id="matrix" class="mb-16">
+            <div class="flex items-center justify-between mb-8 pb-4 border-b-2 border-slate-900">
+                <h2 class="display-font text-2xl font-bold uppercase tracking-wide text-slate-900">01. Matrice Spatiale Interactive</h2>
+                <span class="text-xs font-mono text-slate-500 uppercase">Mode dynamique activé</span>
             </div>
-            <div class="part">
-                <h2>Partie 2 (Horizontale)</h2>
-                <p>Vous pouvez modifier ce texte directement dans votre fichier <code>index.html</code> sur GitHub pour y mettre vos propres contenus.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Panel A -->
+                <div onclick="activatePanel('alpha')" id="panelAlpha" class="arch-box bg-white p-8 cursor-pointer transition-all border-2 border-slate-900 hover:border-blue-600 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="display-font text-xs font-mono text-slate-400 group-hover:text-blue-600">MOD_01</span>
+                        <div class="w-3 h-3 bg-blue-600 border border-slate-900"></div>
+                    </div>
+                    <h3 class="display-font text-xl font-bold text-slate-900 mb-2">Structure Alpha</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Analyse des flux horizontaux et verticaux pour une lisibilité absolue des interfaces modernes.
+                    </p>
+                </div>
+
+                <!-- Panel B -->
+                <div onclick="activatePanel('beta')" id="panelBeta" class="arch-box bg-white p-8 cursor-pointer transition-all border-2 border-slate-900 hover:border-blue-600 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="display-font text-xs font-mono text-slate-400 group-hover:text-blue-600">MOD_02</span>
+                        <div class="w-3 h-3 bg-slate-200 border border-slate-900 group-hover:bg-blue-600 transition-colors"></div>
+                    </div>
+                    <h3 class="display-font text-xl font-bold text-slate-900 mb-2">Structure Beta</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Équilibre des masses chromatiques entre le blanc immaculé et le bleu royal profond.
+                    </p>
+                </div>
+
+                <!-- Panel C -->
+                <div onclick="activatePanel('gamma')" id="panelGamma" class="arch-box bg-white p-8 cursor-pointer transition-all border-2 border-slate-900 hover:border-blue-600 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="display-font text-xs font-mono text-slate-400 group-hover:text-blue-600">MOD_03</span>
+                        <div class="w-3 h-3 bg-slate-200 border border-slate-900 group-hover:bg-blue-600 transition-colors"></div>
+                    </div>
+                    <h3 class="display-font text-xl font-bold text-slate-900 mb-2">Structure Gamma</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Interaction en temps réel permettant de reconfigurer l'affichage dynamique de la page.
+                    </p>
+                </div>
             </div>
-            <div class="part">
-                <h2>Partie 3 (Horizontale)</h2>
-                <p>Le design utilise une structure asymétrique moderne, optimisée pour tous les types d'écrans (ordinateurs et mobiles).</p>
-            </div>
-            <div class="part">
-                <h2>Partie 4 (Horizontale)</h2>
-                <p>Félicitations ! Votre page web est maintenant en ligne et opérationnelle.</p>
+
+            <!-- Dynamic Output Box -->
+            <div id="matrixOutput" class="mt-8 arch-box bg-blue-50 p-8 border-2 border-slate-900">
+                <span class="text-xs font-mono uppercase text-blue-700 font-bold block mb-2">// CONSOLE DE CONTRÔLE SPATIAL</span>
+                <p id="outputText" class="display-font text-lg font-semibold text-slate-900">
+                    Sélectionnez un module ci-dessus pour inspecter les spécifications architecturales.
+                </p>
             </div>
         </div>
+
+        <!-- Section 02: Architectural Blueprint & Counter -->
+        <div id="blueprint" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="arch-box bg-white p-8 lg:p-10 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-mono text-blue-600 font-bold uppercase tracking-wider block mb-3">02. Spécification Technique</span>
+                    <h3 class="display-font text-2xl font-bold text-slate-900 mb-4">Optimisation GitHub Pages</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Ce fichier unique intègre l'ensemble des dépendances nécessaires (Tailwind CSS, Google Fonts Space Grotesk & Inter) pour garantir un déploiement instantané sans erreur 404.
+                    </p>
+                </div>
+                <div class="p-4 bg-slate-50 border-2 border-slate-900 font-mono text-xs text-slate-700">
+                    index.html -- target: main branch -- status: ready
+                </div>
+            </div>
+
+            <div class="arch-box bg-slate-900 text-white p-8 lg:p-10 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-mono text-blue-400 font-bold uppercase tracking-wider block mb-3">03. Compteur d'Interaction Brut</span>
+                    <h3 class="display-font text-2xl font-bold text-white mb-2">Registre d'Événements</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Testez l'interactivité instantanée de la page directement depuis le navigateur.
+                    </p>
+                </div>
+                <div class="flex items-center justify-between pt-6 border-t border-slate-800">
+                    <div>
+                        <span class="text-xs font-mono text-slate-400 block">Valeur actuelle</span>
+                        <span id="counterValue" class="display-font text-4xl font-extrabold text-blue-400">0</span>
+                    </div>
+                    <button onclick="incrementCounter()" class="display-font px-6 py-3 bg-blue-600 text-white font-bold border-2 border-white shadow-[3px_3px_0px_#ffffff] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_#ffffff] transition-all text-sm uppercase">
+                        Incrémenter +1
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 - Créé avec GitHub Pages</p>
+    <!-- Footer -->
+    <footer class="w-full border-t-2 border-slate-900 bg-white py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-600">
+            <p>© 2026 ARCHITECTURAL LAYOUT • WHITE & ROYAL BLUE</p>
+            <p class="mt-4 sm:mt-0 text-blue-600 font-bold">DÉPLOYÉ SUR GITHUB PAGES</p>
+        </div>
     </footer>
 
+    <!-- Interactive Script -->
+    <script>
+        function activatePanel(type) {
+            const output = document.getElementById('outputText');
+            const boxAlpha = document.getElementById('panelAlpha');
+            const boxBeta = document.getElementById('panelBeta');
+            const boxGamma = document.getElementById('panelGamma');
+
+            // Reset borders
+            [boxAlpha, boxBeta, boxGamma].forEach(b => {
+                b.style.borderColor = '#0f172a';
+                b.style.boxShadow = '4px 4px 0px #0f172a';
+            });
+
+            const activeBox = type === 'alpha' ? boxAlpha : type === 'beta' ? boxBeta : boxGamma;
+            activeBox.style.borderColor = '#1d4ed8';
+            activeBox.style.boxShadow = '6px 6px 0px #1d4ed8';
+
+            if (type === 'alpha') {
+                output.textContent = "Module Alpha actif : Analyse spatiale des proportions asymétriques et des marges structurées.";
+            } else if (type === 'beta') {
+                output.textContent = "Module Beta actif : Vérification du contraste chromatique entre le blanc pur (#FFFFFF) et le bleu royal (#1D4ED8).";
+            } else if (type === 'gamma') {
+                output.textContent = "Module Gamma actif : Synchronisation réussie avec les scripts d'interaction front-end sur GitHub Pages.";
+            }
+        }
+
+        let counter = 0;
+        function incrementCounter() {
+            counter++;
+            document.getElementById('counterValue').textContent = counter;
+        }
+    </script>
 </body>
 </html>
